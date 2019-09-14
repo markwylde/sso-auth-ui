@@ -1,0 +1,38 @@
+<nav class="header">
+  <a class="header-brand" href="#">authentication</a>
+  <span class="header-product">for the demo environment</span>
+</nav>
+
+<div class="navbar">
+  <ul class="navbar-left">
+    <li class="nav-item <%- activePage === 'home' ? 'active' : '' %>">
+      <a class="nav-link" href="/">Home</a>
+    </li>
+    <% if (locals.session && locals.session.perms.includes('sso:app:authorise')) { %>
+    <li class="nav-item <%- activePage === 'apps' ? 'active' : '' %>">
+      <a class="nav-link" href="/apps">Apps</a>
+    </li>
+    <% } %>
+    <% if (locals.session && locals.session.perms.find(el => el.match(/^sso:auth_admin:/))) { %>
+    <li class="nav-item <%- activePage === 'admin' ? 'active' : '' %>">
+      <a class="nav-link" href="/admin">Users</a>
+    </li>
+    <% } %>
+  </ul>
+  <% if (locals.session) { %>
+  <ul class="navbar-right">
+    <li class="nav-item">
+      <a class="nav-link" href="/logout">Logout (<strong><%= locals.session.username %></strong>)</a>
+    </li>
+  </ul>
+  <% } else { %>
+  <ul class="navbar-right">
+    <li class="nav-item <%- activePage === 'login' ? 'active' : '' %>">
+      <a class="nav-link" href="/login">Login</a>
+    </li>
+    <li class="nav-item <%- activePage === 'register' ? 'active' : '' %>">
+      <a class="nav-link" href="/register">Register</a>
+    </li>
+  </ul>
+  <% } %>
+</div>

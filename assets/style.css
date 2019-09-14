@@ -1,0 +1,310 @@
+/*
+  RESETS
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+/*
+  LAYOUT
+*/
+
+.float-right {
+  float: right;
+}
+
+.container:not(.container-darkened) {
+  background-color: white;
+}
+.container {
+  margin: 0;
+  padding: 1px var(--page-margin) var(--page-margin) var(--page-margin);
+}
+
+/*
+  HEADING
+*/
+
+body, * {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  --mypad: 20px;
+  --page-margin: 20px;
+}
+
+.header {
+  background-color: #fff;
+  padding: 10px var(--page-margin) 10px var(--page-margin);
+}
+
+.header-brand {
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.header-product {
+  color: black;
+  font-weight: 100;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.navbar-toggler {
+  display: none;
+}
+
+.navbar {
+  background-color: #fff;
+  border-top: 1px solid #e6e6e6;
+  padding: 8px var(--page-margin) 8px var(--page-margin);
+  overflow: hidden;
+  display: block;
+  font-weight: 100;
+}
+
+.navbar li:first-child a {
+  padding-left: 0;
+}
+.navbar li:last-child a {
+  padding-right: 0;
+}
+
+.navbar li.active a {
+  font-weight: 600;
+}
+
+.navbar li a {
+  padding: 5px;
+  display: inline-block;
+  text-transform: uppercase;
+  color: black;
+  text-decoration: none;
+}
+
+.navbar-left {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+.navbar-right {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  float: right;
+  text-align: right;
+}
+
+.navbar li {
+  display: inline;
+}
+
+/*
+  TABLES
+*/
+
+.table {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.table td:first-child,
+.table th:first-child {
+  padding-left: 0;
+}
+
+.table td,
+.table th {
+  padding: 5px;
+  border-bottom: 1px solid #e6e6e6;
+  border-spacing: 0;
+}
+
+.table th {
+  text-align: left;
+}
+
+.table .table-cell-sm {
+  width: 1px;
+  white-space: nowrap;
+}
+
+.table-cell-expand:hover {
+  max-width: 600px;
+  white-space: inherit;
+  overflow: inherit;
+  display: fixed;
+}
+
+/*
+  ALERT
+*/
+
+.alert {
+  margin: 0;
+  margin-bottom: 10px;
+  display: block;
+  padding: 10px;
+  border: 1px solid transparent;
+}
+
+.alert-danger {
+  background-color: #f0d4d6;
+  border-color: #cfb9bc;
+}
+.alert-success {
+ background-color: #d7efca;
+ border-color: #9ad394;
+}
+
+/*
+  LIST
+*/
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+ul.list {
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+ul.list li {
+  margin-left: 30px;
+}
+/*
+  TOOLTIP
+*/
+.table td.tooltip:hover {
+  background-color: #efefef;
+}
+.table td .tooltip-content {
+  margin-top: 5px;
+  margin-left: -5px;
+}
+
+.tooltip {
+  cursor: pointer;
+}
+
+.tooltip:hover .tooltip-content,
+.tooltip:focus .tooltip-content {
+  display: inherit;
+}
+
+.tooltip-content {
+  background-color: white;
+  position: absolute;
+  display: none;
+  border: 1px solid #e6e6e6;
+  padding: 2px;
+}
+
+/*
+  BUTTON
+*/
+
+.btn:hover {
+  background-color: rgb(41, 38, 38);
+  color: white;
+}
+.btn {
+  font-weight: 100;
+  text-decoration: none;
+  font-size: 18px;
+  border: 1px solid black;
+  padding: 8px;
+  color: black;
+  cursor: pointer;
+}
+
+
+.btn-sm {
+  padding: 4px;
+  font-size: 14px;
+}
+
+/*
+  TEXT
+*/
+h2 {
+  font-weight: 100;
+}
+h2 small {
+  font-weight: 100;
+}
+
+/*
+  LABEL
+*/
+
+.label {
+  border-radius: 7px;
+  border: 1px solid #cccccc;
+  padding: 1px 5px 1px 5px;
+}
+
+/*
+  BOX
+*/
+.box {
+  max-width: 600px;
+  width: 100%;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border: 1px solid #d9d9d9;
+  box-shadow: 0 0 50px -30px rgba(0,0,0,0.3);
+}
+
+.box-header {
+  background-color: #1b5a90;
+  color: white;
+  padding: 10px var(--mypad) 10px var(--mypad);
+  margin-bottom: 20px;
+}
+
+.box-header h1 {
+  text-transform: uppercase;
+}
+
+.box-content {
+  padding: 0 var(--mypad) var(--mypad) var(--mypad);
+}
+
+/*
+  FORM
+*/
+.form-group {
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.form-group label::after {
+  content: ':';
+}
+
+.form-group label {
+  display: block;
+  font-weight: 200;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  font-size: 20px;
+  font-family: monospace;
+}

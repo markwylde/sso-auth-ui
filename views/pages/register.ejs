@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main class="container">
+    <% if (locals.session) { %>
+    <div class="alert alert-success blue">
+      You are logged in as <strong><%= locals.session.username %></strong>
+    </div>
+    <% } else { %>
+    <div class="box">
+      <div class="box-header">
+        <h1>Register</h1>
+        <p>Create an account to access our services</p>
+      </div>
+
+      <div class="box-content">
+        <form method="post" class="form">
+          <% if (locals.errors) { %>
+          <div class="alert alert-danger">
+            Could not create your account:
+            <ul class="list">
+            <% Object.keys(locals.errors.errors).forEach(prop => { %>
+              <li><%= prop %> <%= locals.errors.errors[prop] %>
+            <% }) %>
+            </ul>
+          </div>
+          <% } %>
+
+          <div class="form-group">
+            <label>Username</label>
+            <input class="form-control" name="username" value="<%= formData.username %>" autofocus />
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input class="form-control" name="password" value="<%= formData.password %>" type="password" />
+          </div>
+
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <input class="form-control" name="password_confirmation" value="<%= formData.password_confirmation %>" type="password" />
+          </div>
+
+          <button class="btn btn-default" type="submit">Create Account</button>
+        </form>
+      </div>
+    </div>
+    <% } %>
+  </main>
+</body>
+</html>

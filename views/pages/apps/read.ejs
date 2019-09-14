@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../../partials/head %>
+</head>
+
+<body>
+
+  <header>
+    <% include ../../partials/header %>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2><small>apps</small>.<%= app.title %>
+        <div class="btn-group float-right">
+          <a class="btn btn-light" href="/apps">Back to apps</a>
+        </div>
+      </h2>
+
+      <div>
+        <label>Created at:</label>
+        <span><%= app.date_created %></span>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

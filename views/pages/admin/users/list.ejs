@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../../../partials/head %>
+</head>
+
+<body>
+
+  <header>
+    <% include ../../../partials/header %>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Users</h2>
+
+      <% if (locals.flashMessage) { %>
+        <ul class="alert alert-<%= locals.flashMessage.type %>">
+          <%= locals.flashMessage.text %>
+        </ul>
+      <% } %>
+
+      <table class="table table-sm">
+        <thead>
+          <th>Username</th>
+          <th class="table-cell-sm">Permissions</th>
+          <th class="table-cell-sm">Date Created</th>
+        </thead>
+
+        <% users.forEach(user => { %>
+        <tbody>
+          <td><a href="/admin/users/<%= user.id %>"><%= user.username %></a></td>
+          <td class="table-cell-sm tooltip" tabindex=0>
+              <span><%= user.perms.length %></span>
+              <div class="tooltip-content">
+                <table>
+                  <% user.perms.forEach(perm => { %>
+                  <tr>
+                    <td><%= perm %></td>
+                  </tr>
+                  <% }) %>
+                </table>
+              </div>
+            </div>
+          </td>
+          <td class="table-cell-sm"><%= user.date_created %></td>
+        </tbody>
+        <% }) %>
+      </table>
+    </section>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../../../partials/head %>
+</head>
+
+<body>
+
+  <header>
+    <% include ../../../partials/header %>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>User <strong><%= user.username %></strong>
+        <div class="btn-group float-right" role="group" aria-label="Basic example">
+          <a class="btn btn-warning" href="/admin/users/<%= user.id %>">Cancel</a>
+        </div>
+      </h2>
+
+      <div>
+        <label>Created at:</label>
+        <span><%= user.date_created %></span>
+      </div>
+
+      <form method="POST">
+        <table class="table table-sm">
+          <thead>
+            <th class="table-cell-sm"></th>
+            <th class="table-cell-sm">Permission</th>
+            <th>Title</th>
+          </thead>
+  
+          <% permissions.forEach(permission => { %>
+          <tbody>
+            <td><input name="perms" value="<%= permission.id %>" type="checkbox" <%= user.perms.includes(permission.id) ? 'checked' : '' %>/></td>
+            <td><%= permission.id %></td>
+            <td><%= permission.title %></td>
+          </tbody>
+          <% }) %>
+        </table>
+
+        <button class="btn btn-primary" type="submit">Save</button>
+      </form>
+    </section>
+  </main>
+
+</body>
+</html>

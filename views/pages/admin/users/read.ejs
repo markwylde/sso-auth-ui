@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../../../partials/head %>
+</head>
+
+<body>
+
+  <header>
+    <% include ../../../partials/header %>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>User <strong><%= user.username %></strong>
+        <div class="btn-group float-right" role="group" aria-label="Basic example">
+          <a class="btn btn-warning" href="/admin/users/<%= user.id %>/edit">Edit</a>
+          <a class="btn btn-warning" href="/admin/users">Back to users</a>
+        </div>
+      </h2>
+
+      <div>
+        <label>Created at:</label>
+        <span><%= user.date_created %></span>
+      </div>
+
+      <h3>Permissions</h3>
+      <form method="POST">
+        <table class="table table-sm">
+          <thead>
+            <th class="table-cell-sm"></th>
+            <th class="table-cell-sm">Permission</th>
+            <th>Title</th>
+          </thead>
+  
+          <% permissions.forEach(permission => { %>
+          <tbody>
+            <td><input disabled name="perms" value="<%= permission.id %>" type="checkbox" <%= user.perms.includes(permission.id) ? 'checked' : '' %>/></td>
+            <td><%= permission.id %></td>
+            <td><%= permission.title %></td>
+          </tbody>
+          <% }) %>
+        </table>
+      </form>
+
+      <h3>Apps</h3>
+      <form method="POST">
+        <table class="table table-sm">
+          <thead>
+            <th class="table-cell-sm">ID</th>
+            <th>Title</th>
+          </thead>
+  
+          <% apps.forEach(app => { %>
+          <tbody>
+            <td><%= app.id %></td>
+            <td><%= app.title %></td>
+          </tbody>
+          <% }) %>
+        </table>
+      </form>
+    </section>
+  </main>
+
+</body>
+</html>

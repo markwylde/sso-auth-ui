@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../../partials/head %>
+</head>
+
+<body>
+
+  <header>
+    <% include ../../partials/header %>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2><small>apps</small>.<%= app.title %>
+        <div class="btn-group float-right">
+          <a class="btn btn-light" href="/apps">Back to apps</a>
+        </div>
+      </h2>
+
+      <form method="post">
+        <p>Would you like to delete the app <strong><%= app.title %></strong>?</p>
+        <button class="btn">Delete</button>
+        <a class="btn" href="/apps">Cancel</a>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

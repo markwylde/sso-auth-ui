@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main class="container">
+    <% if (locals.session) { %>
+    <div class="alert alert-success blue">
+      You are logged in as <strong><%= locals.session.username %></strong>
+    </div>
+    <% } else { %>
+    <div class="box">
+      <div class="box-header">
+        <h1>Login</h1>
+        <p>Enter the login details for your account to access our services</p>
+      </div>
+
+      <div class="box-content">
+        <form method="post" class="form">
+          <% if (locals.flashMessage) { %>
+          <ul class="alert alert-<%= locals.flashMessage.type %>">
+            <%= locals.flashMessage.text %>
+          </ul>
+          <% } %>
+
+          <% if (locals.errors && Array.isArray(locals.errors)) { %>
+          <div class="alert alert-danger">
+            Could not log you into your account:
+            <ul class="list">
+              <% locals.errors.forEach(error => { %>
+                <li><%= error %>
+              <% }) %>
+            </ul>
+          </div>
+          <% } else if (locals.errors) { %>
+          <div class="alert alert-danger">
+            Could not log you into your account:
+            <ul class="list">
+            <% Object.keys(locals.errors.errors).forEach(prop => { %>
+              <li><%= prop %> <%= locals.errors.errors[prop] %>
+            <% }) %>
+            </ul>
+          </div>
+          <% } %>
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input class="form-control" id="username" name="username" value="<%= formData.username %>" <%= !formData.username ? 'autofocus' : '' %> />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" id="password" name="password" type="password" <%= formData.username ? 'autofocus' : '' %> />
+          </div>
+
+          <button class="btn btn-default" type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+    <% } %>
+  </main>
+</body>
+</html>

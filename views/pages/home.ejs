@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main class="container">
+    <h1>Why, hello there!</h1>
+    <p>This will one day be the my account page</p>
+
+    <% if (locals.session) { %>
+      <pre><%= JSON.stringify(session, null, 2) %></pre>
+      <p>
+        You are logged in as <strong><%= session.username %></strong>
+      </p>
+    <% } %>
+  </main>
+</body>
+</html>
