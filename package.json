@@ -11,7 +11,7 @@
   "author": "",
   "license": "GPL-3.0",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.20.0",
     "body-parser": "^1.18.3",
     "cookie-flash-messages": "git+https://github.com/markwylde/cookie-flash-messages.git",
     "cookie-parser": "^1.4.4",
